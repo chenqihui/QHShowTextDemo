@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension QHTextView {
+    
     func none(textConfig text: QHTextConfig) {
         self.text = text.text
         self.setNeedsDisplay()
@@ -48,28 +49,22 @@ extension QHTextView {
         }
     }
     
-    // TODO：无效，待查 - [Swift - 动画效果的实现方法总结（附样例）](http://www.hangge.com/blog/cache/detail_664.html)
     func animationTransition(textConfig text: QHTextConfig) {
         self.text = text.text
         self.setNeedsDisplay()
         
-        UIView.beginAnimations("animation", context: nil)
-        //设置动画的持续时间，类型和渐变类型
-        UIView.setAnimationDuration(text.animate.interval)
-        UIView.setAnimationCurve(.linear)
-        UIView.setAnimationTransition(text.animate.value, for: self, cache: false)
-        //开始动画
-        UIView.commitAnimations()
-        
-        //                let transition = CATransition()
-        //                transition.duration = 2.0
-        //                transition.type = kCATransitionFade
-        //                transition.subtype = kCATransitionFromLeft
-        //                // 执行刚才添加好的动画
-        //                self.layer.add(transition, forKey: nil)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + text.animate.interval, execute: {
-            self.delegate?.complete(view: self)
+        self.alpha = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            UIView.beginAnimations(nil, context: nil)
+            UIView.setAnimationDuration(text.animate.interval)
+            UIView.setAnimationTransition(.flipFromLeft, for: self, cache: true)
+            UIView.setAnimationCurve(.linear)
+            self.alpha = 1
+            UIView.commitAnimations()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + text.animate.interval, execute: {
+                self.delegate?.complete(view: self)
+            })
         })
     }
 }

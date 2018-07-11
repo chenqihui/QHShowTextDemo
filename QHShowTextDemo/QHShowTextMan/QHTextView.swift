@@ -17,7 +17,6 @@ class QHTextView: UIView {
     var text = ""
     var textId: Int = 0
     var textConfig: QHTextConfig?
-    
     weak var delegate : QHTextViewDelegate?
 
     override func draw(_ rect: CGRect) {
@@ -43,6 +42,8 @@ class QHTextView: UIView {
         let centerP = CGPoint(x: (rect.size.width - strSize.width)/2, y: (rect.size.height - strSize.height)/2)
         text.draw(at: centerP, withAttributes: textAttributes)
     }
+    
+    // MARK: Public
     
     class func create(text: QHTextConfig, superView: UIView) -> QHTextView {
         let size = text.text.sizeFor(fontSize: text.font.size)

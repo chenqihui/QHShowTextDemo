@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// 总配置
 struct QHTextConfig {
     var id: Int = 0
     var text: String
@@ -21,9 +22,9 @@ struct QHTextConfig {
         self.id = id
         self.text = text
     }
-    
 }
 
+// 文本配置
 struct QHTextFontConfig {
     var size: CGFloat = 0.0
     var color: UIColor = UIColor.white
@@ -31,6 +32,7 @@ struct QHTextFontConfig {
     var other: Any?
 }
 
+// 转场配置
 struct QHTextTransitionConfig {
     var type: QHTransitionType = .up
     var interval: Double = 0
@@ -38,24 +40,28 @@ struct QHTextTransitionConfig {
     var other: Any?
 }
 
+// 动画配置
 struct QHTextAnimateConfig {
     var type: QHTextAnimateType = .none
     var interval: Double = 1
     var other: Any?
     var value: UIViewAnimationTransition = .none
     var scale: CGFloat = 1
+    var animationTransition: UIViewAnimationTransition = .curlUp
 }
 
+// 当前行的显示动画类型
 enum QHTextAnimateType: Int {
     case none = 1
-    case typewriter
-    case scale
-    case animationTransition
+    case typewriter // 打字机
+    case scale      // 缩放
+    case animationTransition //转场
 }
 
+// 换行时的转场动画类型
 enum QHTransitionType: Int {
     case up = 1
-    case upScale
+    case upScale   // 缩放
     case clockwise // 顺时针
     case anticlockwise // 逆时针
 }

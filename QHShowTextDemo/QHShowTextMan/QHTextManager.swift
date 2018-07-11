@@ -78,6 +78,8 @@ class QHTextManager: NSObject, QHTextViewDelegate {
         }
     }
     
+    // MARK: Public
+    
     class func create(superView: UIView) -> QHTextManager {
         let manager = QHTextManager()
         manager.view.frame = superView.bounds

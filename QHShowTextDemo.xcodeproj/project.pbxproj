@@ -79,10 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				74FF93E620F3334600B5A841 /* QHTextView.swift */,
+				747CBCD920F6120C00AAF5C0 /* QHTextViewAnimate.swift */,
 				74FF93E820F3401200B5A841 /* QHTextManager.swift */,
 				74FF93EA20F4B8B800B5A841 /* QHTextConfig.swift */,
 				747CBCD720F5FB8D00AAF5C0 /* QHTextTestConfig.swift */,
-				747CBCD920F6120C00AAF5C0 /* QHTextViewAnimate.swift */,
 			);
 			path = QHShowTextMan;
 			sourceTree = "<group>";

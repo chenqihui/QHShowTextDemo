@@ -36,13 +36,16 @@ class QHTextTestConfig: NSObject {
     
     private class func textAnimateConfig() -> QHTextAnimateConfig {
         var animate = QHTextAnimateConfig()
-        animate.type = QHTextAnimateType(rawValue: (Int(arc4random() % 3) + 1))!
+        animate.type = QHTextAnimateType(rawValue: (Int(arc4random() % 4) + 1))!
         animate.interval = 1
         if animate.type == .typewriter {
             animate.interval = 0.2
         }
         else if animate.type == .scale {
             animate.scale = 1.0 + (CGFloat(arc4random() % 9) + 1) * 0.1 * ((Int(arc4random() % 2) + 1) == 2 ? 1 : -1)
+        }
+        else if animate.type == .animationTransition {
+            animate.animationTransition = UIViewAnimationTransition(rawValue: (Int(arc4random() % 4) + 1))!
         }
         return animate
     }
