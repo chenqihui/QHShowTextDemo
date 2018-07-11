@@ -1,4 +1,4 @@
 # QHShowTextDemo
 
 
-![image](https://github.com/chenqihui/QHTextShowDemo/blob/master/screenshots/QHTextShowDemo.gif)
+![image](https://github.com/chenqihui/QHShowTextDemo/blob/master/screenshots/QHTextShowDemo.gif)
